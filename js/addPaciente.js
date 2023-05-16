@@ -9,10 +9,9 @@ botaoAdd.addEventListener("click", function (event) {
   var pacienteTr = criaPaciente(paciente);
 
   var erros = validaPaciente(paciente);
-
+  console.log(erros);
   if (erros.length > 0) {
-    var mensagemErro = document.querySelector("#paciente-erro");
-    mensagemErro.textContent = erros;
+    exibeMensagemErro(erros);
     return;
   }
 
@@ -21,6 +20,8 @@ botaoAdd.addEventListener("click", function (event) {
   tabela.appendChild(pacienteTr);
 
   addPaciente.reset();
+  var mensagemErro = document.querySelector("#paciente-erro");
+  mensagemErro.innerHTML = "";
 });
 
 function addDadosPaciente(addPaciente) {
@@ -45,6 +46,15 @@ function criaPaciente(paciente) {
 
   return pacienteTr;
 }
+function exibeMensagemErro(erros) {
+  var ulErro = document.querySelector("#paciente-erro");
+  ulErro.innerHTML = "";
+  erros.forEach(function (erro) {
+    var liErro = document.createElement("li");
+    liErro.textContent = erro;
+    ulErro.appendChild(liErro);
+  });
+}
 
 function infoPaciente(dado, classe) {
   var info = document.createElement("td");
@@ -55,9 +65,14 @@ function infoPaciente(dado, classe) {
 
 function validaPaciente(paciente) {
   var erros = [];
-  if (!validaPeso(paciente.peso)) erros.push("O Peso está invalido");
+  if (paciente.nome.length == 0) erros.push("O nome está invalido");
 
-  if (!validaAltura(paciente.altura)) erros.push("O Peso está invalido");
+  if (!validaPeso(paciente.peso) || paciente.peso.length == 0)
+    erros.push("O Peso está invalido");
 
+  if (!validaAltura(paciente.altura) || paciente.altura.length == 0)
+    erros.push("O Altura está invalido");
+
+  if (paciente.gordura.length == 0) erros.push("Gordura está invalida");
   return erros;
 }
