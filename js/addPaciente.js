@@ -19,10 +19,20 @@ botaoAdd.addEventListener("click", function (event) {
 
   tabela.appendChild(pacienteTr);
 
+  adicionaPacienteNaTabela(paciente);
+
   addPaciente.reset();
+
   var mensagemErro = document.querySelector("#paciente-erro");
+  
   mensagemErro.innerHTML = "";
 });
+
+function adicionaPacienteNaTabela(paciente) {
+  var pacienteTr = criaPaciente(paciente);
+  var tabela = document.querySelector("#tabela-pacientes");
+  tabela.appendChild(pacienteTr);
+}
 
 function addDadosPaciente(addPaciente) {
   var paciente = {
