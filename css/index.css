@@ -12,29 +12,20 @@ header {
   height: 3em;
   color: #fff;
   margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
-header h1 {
-  font-size: 2em;
-  display: inline-block;
-  vertical-align: middle;
-}
+header h1,
 header h2 {
   font-size: 2em;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-header .container:before {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
+  margin: 0;
 }
 
 .container {
   width: 60%;
-  height: 100%;
   margin: 0 auto;
 }
 
@@ -82,7 +73,6 @@ label {
   width: 100%;
   border: 1px solid #ccc;
   padding: 0.7em;
-  width: 100%;
 }
 
 .campo-medio {
@@ -111,6 +101,7 @@ button {
   display: block;
   clear: both;
   margin: 10px 0px;
+  transition: margin-top 0.3s, border 0.3s;
 }
 
 button:active {
@@ -138,7 +129,7 @@ button:disabled {
 
 .fadeOut {
   opacity: 0;
-  transition: 0.5 s;
+  transition: opacity 0.5s;
 }
 
 #filtrar-tabela {
