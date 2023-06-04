@@ -68,3 +68,29 @@ function classificarPaciente(imc) {
     return "Obesidade grau 3";
   }
 }
+function adicionePaciente() {
+
+  var tabela = document.querySelector("#tabela-pacientes");
+
+  var novaLinha = document.createElement("tr");
+
+  var novaCelulaNome = document.createElement("td");
+  novaCelulaNome.textContent = "Nome do Paciente";
+
+  var novaCelulaPeso = document.createElement("td");
+  novaCelulaPeso.textContent = "Peso do Paciente";
+
+  var novaCelulaAltura = document.createElement("td");
+  novaCelulaAltura.textContent = "Altura do Paciente";
+
+  var novaCelulaImc = document.createElement("td");
+  novaCelulaImc.textContent = "IMC do Paciente";
+
+  novaLinha.appendChild(novaCelulaNome);
+  novaLinha.appendChild(novaCelulaPeso);
+  novaLinha.appendChild(novaCelulaAltura);
+  novaLinha.appendChild(novaCelulaImc);
+
+
+  tabela.appendChild(novaLinha);
+}
